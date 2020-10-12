@@ -1,4 +1,4 @@
-package com.jojoldu.book.springboot.web;
+package com.jojoldu.book.springboot.web.dto;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
