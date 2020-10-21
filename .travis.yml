@@ -16,9 +16,9 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-  - zip -r rs-pro ./*
+  - zip -r com.jojoldu.book ./*
   - mkdir -p deploy
-  - mv rs-pro.zip deploy/rs-pro.zip
+  - mv com.jojoldu.book.zip deploy/com.jojoldu.book.zip
 
 deploy:
   - provider: s3
