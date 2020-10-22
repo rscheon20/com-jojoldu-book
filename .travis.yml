@@ -36,6 +36,20 @@ deploy:
     local_dir: deploy # before_deploy에서 생성한 디렉토리
     wait-until-deployed : true
 
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+
+    bucket: rs-pro-build
+    key: com-jojoldu-book.zip
+
+    bundle_type: zip
+    application: com-jojoldu-book
+    deployment_group: com-jojoldu-book
+
+    region: ap-northeast-1
+    wait-until-deployed: true
+
 
 # ci 실행 완료시 메일로 알람
 #
