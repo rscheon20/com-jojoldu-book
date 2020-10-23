@@ -20,9 +20,12 @@ script: "./gradlew clean build"
 
 before_deploy:
   - zip -r com-jojoldu-book ./*
-  - mkdir -p deploy
-  - mv com-jojoldu-book.zip deploy/com-jojoldu-book.zip
-
+  - cp scripts/*.sh before-deploy/
+  - cp appspec.yml before-deploy/
+  - cp build/libs/*.jar before-deploy/
+  - cd before-deploy && zip -r before-deploy * #brefore-deploy 이동후 전체 압축
+  - cd ../ && mkdir -p deploy
+  - mv before-deploy/before-deploy.zip deploy/com-jojoldu-book.zip
 
 deploy:
   - provider: s3
