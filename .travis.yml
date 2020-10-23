@@ -19,7 +19,7 @@ before_install:
 script: "./gradlew clean build"
 
 before_deploy:
-  - zip -r com-jojoldu-book ./*
+  - mkdir -p before-deploy
   - cp scripts/*.sh before-deploy/
   - cp appspec.yml before-deploy/
   - cp build/libs/*.jar before-deploy/
