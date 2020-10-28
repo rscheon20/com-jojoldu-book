@@ -2,8 +2,8 @@
 
 ABSPATH=$(readlink -f $0)
 ABSDIR=$(dirname $ABSPATH)
-source $(ABSDIR)/profile.sh
-source $(ABSDIR/switch.sh)
+source ${ABSDIR}/profile.sh
+source ${ABSDIR}/switch.sh
 
 IDEL_PORT=$(find_idle_port)
 
@@ -15,9 +15,9 @@ sleep 10
 for RETRY_COUNT in {1..10}
 do
   RESPONE=$(curl -s http://localhost:${IDEL_PORT}/profile)
-  UP_COUNT=$(echo ${RESPONE} | grep 'real | wc -1')
+  UP_COUNT=$(echo ${RESPONE} | grep 'real' | wc -l )
 
-  if [ $UP_COUNT -ge 1]
+  if [ ${UP_COUNT} -ge 1 ]
   then
       echo "> Health Check 성공"
       switch_proxy
