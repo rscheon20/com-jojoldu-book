@@ -12,5 +12,5 @@ function switch_proxy() {
   echo "set \$service_url http://127.0.0.1:${IDEL_PORT};" | sudo tee /etc/nginx/conf.d/service_url.inc
 
   echo "> 엔진엑스 Reload"
-  sudo nginx -s reload
+  sudo systemctl reload nginx
 }
